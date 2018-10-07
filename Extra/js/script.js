@@ -1,7 +1,6 @@
 'use strict';
 
 let num = '33721',
-    arr = [],
     multiply = 1,
     degree = 3,
     finalResult;
