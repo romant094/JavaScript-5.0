@@ -1,3 +1,6 @@
-Академия верстки
-Курс JavaScript 4.0
-Антон Романков
+GLO Academy
+---
+Course JavaScript 4.0
+---
+Anton Romankov
+---
