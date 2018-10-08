@@ -6,7 +6,7 @@ let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'
     allDays = document.getElementsByTagName('p');
 
 while (i < weekDays.length) {
-    document.write('<p class="day' + i + '">' + weekDays[i] + '</p>');
+    document.write('<p>' + weekDays[i] + '</p>');
 
     if (i == 0 || i == 6) {
         allDays[i].classList.add('weekend');
