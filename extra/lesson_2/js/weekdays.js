@@ -6,14 +6,14 @@ let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'
     allDays = document.getElementsByTagName('p');
 
 while (i < weekDays.length) {
-    document.write('<p>' + weekDays[i] + '</p>');
-    i++;
-}
+    document.write('<p class="day' + i + '">' + weekDays[i] + '</p>');
 
-for (i = 0; i < allDays.length - 1; i++) {
-    allDays[0].classList.add('weekend');
-    allDays[6].classList.add('weekend');
-    allDays[dayToday].classList.add('today');
+    if (i == 0 || i == 6) {
+        allDays[i].classList.add('weekend');
+    } else if (i == dayToday) {
+        allDays[i].classList.add('today');
+    }
+    i++;
 }
 
 let arr = ['16253671273', '215371253', '37172364', '41873653', '51783835', '61823123', '76137537'];
