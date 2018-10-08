@@ -10,9 +10,12 @@ while (i < weekDays.length) {
 
     if (i == 0 || i == 6) {
         allDays[i].classList.add('weekend');
-    } else if (i == dayToday) {
+    }
+    
+    if (i == dayToday) {
         allDays[i].classList.add('today');
     }
+    
     i++;
 }
 
