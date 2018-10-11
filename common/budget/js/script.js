@@ -1,6 +1,7 @@
 'use strict';
 
-let money, time;
+let money, time,
+    cont = document.querySelector('.container');
 
 function start() {
     while (isNaN(money) || money == '' || money == null) {
@@ -77,7 +78,7 @@ let appData = {
         }
 
         appData.income.forEach(function (elem, i) {
-            document.write(`<p> ${i + 1}: ${elem} </p>`);
+            cont.innerHTML += `<p>${i + 1}: ${elem}</p>`;
         });
     }
 };

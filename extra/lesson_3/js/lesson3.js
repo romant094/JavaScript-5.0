@@ -59,3 +59,5 @@ function oneArg(x) {
 let a = oneArg('          akshdgasdgasdfjdaghdjfahfgsdkfsdhfsdkfhgsdfkdfgahsdkfhasdgfkadsgfadsfkgdsfgakfgsdhfaskfashdgfkasfsh             ');
 
 console.log(a);
+
+document.body.insertBefore()
