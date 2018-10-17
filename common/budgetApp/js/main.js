@@ -23,11 +23,45 @@ let d = document,
     dayValue = d.querySelector('.day-value'),
     buttons = d.querySelectorAll('button');
 
-let money, time,
-    cont = document.querySelector('.container');
+let money,
+    time;
+
+for (let i = 0; i < buttons.length - 1; i++) {
+    buttons[i].setAttribute('disabled', '');
+}
+
+// Обязательные расходы
+for (let i = 0; i < expensesItem.length; i++) {
+    expensesItem[i].addEventListener('input', () => {
+        if (expensesItem[i].value !== '') {
+            expensesBtn.removeAttribute('disabled');
+        }
+    });
+
+    expensesItem[i].addEventListener('input', () => {
+        if (expensesItem[i].value == '') {
+            expensesBtn.setAttribute('disabled', '');
+        }
+    });
+}
+
+// Необязательные расходы
+for (let i = 0; i < optionalExpensesItem.length; i++) {
+    optionalExpensesItem[i].addEventListener('input', () => {
+        if (optionalExpensesItem[i].value !== '') {
+            optionalExpensesBtn.removeAttribute('disabled');
+        }
+    });
+
+    optionalExpensesItem[i].addEventListener('input', () => {
+        if (optionalExpensesItem[i].value == '') {
+            optionalExpensesBtn.setAttribute('disabled', '');
+        }
+    });
+}
 
 startBtn.addEventListener('click', () => {
-    time = prompt("Введите дату в формате YYYY-MM-DD", "");
+    //time = prompt("Введите дату в формате YYYY-MM-DD", "");
     money = +prompt("Ваш бюджет на месяц?", "");
 
     while (isNaN(money) || money == '' || money == null) {
@@ -39,7 +73,7 @@ startBtn.addEventListener('click', () => {
     yearValue.value = new Date(Date.parse(time)).getFullYear();
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
-    // countBtn.attributes.removeNamedItem('disabled');
+    countBtn.removeAttribute('disabled');
 });
 
 expensesBtn.addEventListener('click', () => {
@@ -50,10 +84,8 @@ expensesBtn.addEventListener('click', () => {
             b = expensesItem[++i].value;
 
         if ((typeof (a) === 'string' && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50)) {
-            console.log('done');
             appData.expenses[a] = b;
             sum += +b;
-            appData.total += sum;
         } else {
             i--;
         }
@@ -61,15 +93,6 @@ expensesBtn.addEventListener('click', () => {
 
     expensesValue.textContent = sum;
 });
-
-// expensesItem.forEach((e, i) => {
-//     e.addEventListener('input', () => {
-//         if (e[2 * i] !== '') {
-//             expensesBtn.attributes.removeNamedItem('disabled');
-//         }
-//     });
-// });
-
 
 optionalExpensesBtn.addEventListener('click', () => {
     for (let i = 0; i < optionalExpensesItem.length; i++) {
@@ -80,15 +103,19 @@ optionalExpensesBtn.addEventListener('click', () => {
 });
 
 countBtn.addEventListener('click', () => {
+    let expenses = 0;
+
+    expensesValue.textContent == '' ? expenses = 0 : expenses = +expensesValue.textContent;
+
     if (appData.budget != undefined) {
-        appData.moneyPerDay = (appData.budget / 30).toFixed();
+        appData.moneyPerDay = ((+appData.budget - expenses) / 30).toFixed();
         dayBudgetValue.textContent = appData.moneyPerDay;
 
         if (appData.moneyPerDay < 100) {
             levelValue.textContent = 'Минимальный уровень достатка';
-        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+        } else if (appData.moneyPerDay >= 100 && appData.moneyPerDay < 2000) {
             levelValue.textContent = 'Средний уровень достатка';
-        } else if (appData.moneyPerDay > 2000) {
+        } else if (appData.moneyPerDay >= 2000) {
             levelValue.textContent = 'Высокий уровень достатка';
         } else {
             levelValue.textContent = 'Произошла ошибка';
@@ -142,7 +169,6 @@ let appData = {
     timeData: time,
     savings: false
 };
-
 
 // Если программа еще не запущена( не нажали кнопку "Начать расчет") или нужное (соответственное) для заполнения поле пустое - сделать кнопки неактивными. (Например, если ни одно поле обязательных расходов не заполнено - блокируем кнопку "Утвердить")
 
