@@ -21,7 +21,11 @@ let d = document,
     yearValue = d.querySelector('.year-value'),
     monthValue = d.querySelector('.month-value'),
     dayValue = d.querySelector('.day-value'),
-    buttons = d.querySelectorAll('button');
+    buttons = d.querySelectorAll('button'),
+    expensesPrice = [];
+
+expensesPrice[0] = d.querySelector('#expenses_2');
+expensesPrice[1] = d.querySelector('#expenses_4');
 
 let money,
     time;
@@ -47,6 +51,10 @@ for (let i = 0; i < expensesItem.length; i++) {
 
 // Необязательные расходы
 for (let i = 0; i < optionalExpensesItem.length; i++) {
+    optionalExpensesItem[i].addEventListener('keyup', () => {
+        optionalExpensesItem[i].value = optionalExpensesItem[i].value.replace(/[^\йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]/ig,'');
+    });
+
     optionalExpensesItem[i].addEventListener('input', () => {
         if (optionalExpensesItem[i].value !== '') {
             optionalExpensesBtn.removeAttribute('disabled');
@@ -56,6 +64,19 @@ for (let i = 0; i < optionalExpensesItem.length; i++) {
     optionalExpensesItem[i].addEventListener('input', () => {
         if (optionalExpensesItem[i].value == '') {
             optionalExpensesBtn.setAttribute('disabled', '');
+        }
+    });
+}
+
+// Цены
+for (let i = 0; i < expensesPrice.length; i++) {
+    expensesPrice[i].addEventListener('keydown', (event) => {
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || (event.keyCode >= 35 && event.keyCode <= 40)) {
+            return;
+        } else {
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            }   
         }
     });
 }
@@ -95,11 +116,12 @@ expensesBtn.addEventListener('click', () => {
 });
 
 optionalExpensesBtn.addEventListener('click', () => {
+    let allOptions = '';
     for (let i = 0; i < optionalExpensesItem.length; i++) {
-        let opt = optionalExpensesItem[i].value;
-        appData.optionalExpenses[i] = opt;
-        optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';
+        appData.optionalExpenses[i] = optionalExpensesItem[i].value;
+        allOptions += appData.optionalExpenses[i] + ' ';
     }
+    optionalExpensesValue.textContent = allOptions;
 });
 
 countBtn.addEventListener('click', () => {
@@ -169,7 +191,3 @@ let appData = {
     timeData: time,
     savings: false
 };
-
-// Если программа еще не запущена( не нажали кнопку "Начать расчет") или нужное (соответственное) для заполнения поле пустое - сделать кнопки неактивными. (Например, если ни одно поле обязательных расходов не заполнено - блокируем кнопку "Утвердить")
-
-// Реализовать функционал: при расчете дневного бюджета учитывать сумму обязательных трат (т. e. от бюджета на месяц отнимаем общую сумму всех обяз. трат и ее делим на 30 дней)
