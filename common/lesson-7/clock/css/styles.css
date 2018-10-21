@@ -1,0 +1,48 @@
+.wrapper{
+    padding: 2em 5em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.wrapper-inputs{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-inputs input{
+    width: 25%;
+    font-size: 25px;
+    -moz-appearance: textfield;
+    color: rgb(59, 59, 138);
+    border: none;
+    border-bottom: 1px solid rgb(59, 59, 138);
+    padding: 10px;
+    text-align: center;
+}
+
+.wrapper .btn{
+    border: 1px solid rgb(59, 59, 138);
+    color: white;
+    background-color: rgb(59, 59, 138);
+    font-weight: 700;
+    padding: 20px 0;
+    font-size: 25px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: all .25s;
+}
+
+.wrapper .btn:hover{
+    color: rgb(59, 59, 138);
+    background-color: #fff;
+}
+
+.timer{
+    color:rgb(59, 59, 138);
+    font-size: 100px;
+    padding-top: 0;
+    text-align: center;
+}
