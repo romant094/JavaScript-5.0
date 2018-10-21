@@ -1,0 +1,26 @@
+body{
+padding: 5em;
+}
+
+.wrapper{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.circle{
+ width: 30px;
+ height: 30px;
+ border-radius: 50%;
+ background-color: red;
+ position: absolute;
+}
+
+.blue{
+background-color: blue;
+}
+
+.btn{
+    margin-top: 20px;
+}
