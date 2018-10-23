@@ -1,3 +1,5 @@
+let showOverlay = document.querySelectorAll('.description-btn');
+
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
@@ -92,22 +94,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // modal
 
-    let showOverlay = d.querySelector('.description-btn'),
-        more = d.querySelector('.more'),
+    let more = d.querySelector('.more'),
         overlay = d.querySelector('.overlay'),
         close = d.querySelector('.popup-close');
-
-
-
-    function showModal() {
-        overlay.style.display = 'block';
-        this.classList.add('more-splash');
-        d.body.style.overflow = 'hidden';
-    }
-
-    more.addEventListener('click', () => {
-        showModal();
-    });
 
     close.addEventListener('click', () => {
         overlay.style.display = 'none';
@@ -115,15 +104,15 @@ window.addEventListener('DOMContentLoaded', () => {
         d.body.style.overflow = '';
     });
 
-    //let descriptionBtns = d.querySelectorAll('.description-btn');
+    d.addEventListener('click', (event) => {
+        let t = event.target;
 
-    showOverlay.addEventListener('click', () => {
-        showModal();
+        for (let i = 0; i < showOverlay.length; i++) {
+            if (t == showOverlay[i] || t == more) {
+                overlay.style.display = 'block';
+                overlay.classList.add('more-splash');
+                d.body.style.overflow = 'hidden';
+            }
+        }
     });
-
-    // for (let i = 0; i < descriptionBtns.length; i++) {
-    //     descriptionBtns[i].addEventListener('click', () => {
-    //         showModal();
-    //     });
-    // }
 });
