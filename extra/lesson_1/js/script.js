@@ -7,9 +7,8 @@ let num = '33721',
 
 for (let i = 0; i < 5; i++) {
     multiply *= num.substring(i, i + 1);
-    console.log(i + ": " + multiply);
 }
 
 finalResult = multiply ** degree;
 
-console.log(finalResult);
+console.log(String(finalResult).substring(0, 2));
