@@ -10,18 +10,14 @@ for (i = 0; i < str.length - 1; i++) {
     str = str.replace('-', ' ');
 }
 
+console.log(str);
+
 strNew = str.substring(str.lastIndexOf(' ') + 1);
 
 function cutChars(str, count, char) {
-    let xStr = str.substring(0, str.length - count),
-        newChar = '';
+    let xStr = str.substring(0, str.length - count);
 
-    for (i = 0; i < count; i++) {
-        newChar += char;
-        console.log(newChar);
-    }
-
-    return xStr + newChar;
+    return xStr + char;
 }
 
 strNew = cutChars(strNew, 2, 'о');
@@ -59,5 +55,3 @@ function oneArg(x) {
 let a = oneArg('          akshdgasdgasdfjdaghdjfahfgsdkfsdhfsdkfhgsdfkdfgahsdkfhasdgfkadsgfadsfkgdsfgakfgsdhfaskfashdgfkasfsh             ');
 
 console.log(a);
-
-document.body.insertBefore()

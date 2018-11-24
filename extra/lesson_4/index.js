@@ -1,8 +1,14 @@
+let startInput = document.querySelector('#start'),
+	endInput = document.querySelector('#end'),
+	findFriendly = document.querySelector('#find-friendly');
+
 function getFriendlyNumbers(start, end) {
-	let res = [];
+	start = parseInt(startInput.value);
+	end = parseInt(endInput.value);
 
 	if (validation(start, end)) {
-		let arr = createArray(start, end);
+		let arr = createArray(start, end),
+			res = [];
 
 		for (let i = 0; i < arr.length; i++) {
 			let tempVal = findOne(arr[i]);
@@ -11,21 +17,18 @@ function getFriendlyNumbers(start, end) {
 				res.push(tempVal)
 			}
 		}
+		console.log(res);
+
+		return res;
 	} else {
-		res = false;
+		return false;
 	}
 
-	return res;
 }
 
-console.log(getFriendlyNumbers(1, 1));
-console.log(getFriendlyNumbers(1, 300));
-console.log(getFriendlyNumbers(1, 1210));
-console.log(getFriendlyNumbers(284, 500));
-console.log(getFriendlyNumbers(-1, 300));
-console.log(getFriendlyNumbers(300, 1));
-console.log(getFriendlyNumbers('1', '300'));
-
+findFriendly.addEventListener('click', () => {
+	getFriendlyNumbers(start, end);
+});
 
 function createArray(a, b) {
 	let arr = [];
@@ -64,7 +67,10 @@ function findOne(a) {
 function validation(a, b) {
 	let isValid = true;
 
-	if (typeof(a) !== 'number' || typeof(b) !== 'number' || (a == '') || (b == '') || a > b || a < 1 || b < 1) {
+	a = startInput.value;
+	b = endInput.value;
+
+	if (isNaN(a) || isNaN(b) || (a == '') || (b == '') || a > b || a < 1 || b < 1) {
 		isValid = false;
 	}
 	return isValid;
