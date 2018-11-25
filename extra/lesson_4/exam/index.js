@@ -18,15 +18,6 @@ function getFriendlyNumbers(start, end) {
 	return res;
 }
 
-console.log(getFriendlyNumbers(1, 1));
-console.log(getFriendlyNumbers(1, 300));
-console.log(getFriendlyNumbers(1, 1210));
-console.log(getFriendlyNumbers(284, 500));
-console.log(getFriendlyNumbers(-1, 300));
-console.log(getFriendlyNumbers(300, 1));
-console.log(getFriendlyNumbers('1', '300'));
-
-
 function createArray(a, b) {
 	let arr = [];
 
