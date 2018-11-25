@@ -34,7 +34,6 @@ function showWeekDay(x) {
 }
 
 function countDays(x, y) {
-    console.log(x, y);
     return Math.abs((y - x) / (3600000 * 24));
 }
 
