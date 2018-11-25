@@ -14,9 +14,24 @@ function getFriendlyNumbers(start, end) {
 	} else {
 		res = false;
 	}
+<<<<<<< HEAD
 
 	return res;
 }
+=======
+
+	return res;
+}
+
+console.log(getFriendlyNumbers(1, 1));
+console.log(getFriendlyNumbers(1, 300));
+console.log(getFriendlyNumbers(1, 1210));
+console.log(getFriendlyNumbers(284, 500));
+console.log(getFriendlyNumbers(-1, 300));
+console.log(getFriendlyNumbers(300, 1));
+console.log(getFriendlyNumbers('1', '300'));
+
+>>>>>>> 6c4e588fe8104754d05695af2283255b1f7fde37
 
 function createArray(a, b) {
 	let arr = [];
