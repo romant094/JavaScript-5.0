@@ -82,7 +82,7 @@ for (let i = 0; i < expensesPrice.length; i++) {
 }
 
 startBtn.addEventListener('click', () => {
-    //time = prompt("Введите дату в формате YYYY-MM-DD", "");
+    time = prompt("Введите дату в формате YYYY-MM-DD", "");
     money = +prompt("Ваш бюджет на месяц?", "");
 
     while (isNaN(money) || money == '' || money == null) {
