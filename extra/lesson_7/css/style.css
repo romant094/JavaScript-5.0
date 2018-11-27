@@ -24,3 +24,44 @@ background-color: blue;
 .btn{
     margin-top: 20px;
 }
+
+.animation{
+    margin-top: 50px;
+}
+
+.animation-wrap{
+    border: 1px solid black;
+    width: 50%;
+    min-height: 20px;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: auto;
+}
+
+.animation-wrap div {
+    width: 10px;
+    height: 10px;
+    background: orange;
+    float: left;
+}
+
+.animation-buttons{
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: space-around;
+    max-width: 300px;
+}
+
+.animation-buttons button{
+    padding: 10px 20px;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    background: orange;
+    cursor: pointer;
+}
+
+.animation-buttons button:hover{
+    background: #c78030;
+    color: #fff;
+}

@@ -20,3 +20,29 @@ function myAnimation() {
 btn.addEventListener('click', () => {
     myAnimation();
 });
+
+// One more animation
+
+let globalID,
+	animationWrap = document.querySelector('#animationWrap'),
+    div = document.createElement('div'),
+    start = document.querySelector('#start'),
+    stop = document.querySelector('#stop'),
+    clear = document.querySelector('#clear');
+
+function animateIt() {
+	animationWrap.innerHTML += '<div></div>';
+	globalID = requestAnimationFrame(animateIt);
+}
+
+start.addEventListener('click', ()=>{
+	globalID = requestAnimationFrame(animateIt);
+});
+
+stop.addEventListener('click', ()=>{
+	cancelAnimationFrame(globalID);
+});
+
+clear.addEventListener('click', ()=>{
+	animationWrap.innerHTML = '';
+});
