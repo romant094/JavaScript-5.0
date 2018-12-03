@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&subset=cyrillic');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    min-width: 320px;
+}
+.wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50%;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 25px;
+}
+
+.btn{
+    background-color: rgb(176, 210, 255);
+    font-size: 20px;
+    border: none;
+    border-radius: 100px;
+    padding: 15px 35px;
+    cursor: pointer;
+    width: 220px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.btn:hover{
+    background-color: rgba(100, 100, 255, .5);
+}
+
+.modal{
+    background-color: rgba(0,0,0,.7);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .modal__content{
+    background-color: #ddd;
+    border-radius: 20px;
+    padding: 50px 25px;
+    width: 20%;
+}
+
+.modal .modal__content .input-custom{
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 100px;
+    border: 1px solid #aaa;
+    width: 85%;
+}
+
+.modal .modal__content .btn{
+    width: 100%;
+}
+
+.modal .modal__content .input-custom:focus{
+    border: 1px solid blue;
+}
+
+.display-none{
+    display: none;
+}
+
+.display-flex{
+    display: flex;
+}
