@@ -1,6 +1,6 @@
 GLO Academy
 ---
-Course JavaScript 4.0
+Course JavaScript 5.0
 ---
 Anton Romankov
 ---
