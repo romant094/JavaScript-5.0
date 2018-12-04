@@ -1,0 +1,60 @@
+{
+    "cars": [
+        {
+            "name": "BMW M5",
+            "description": "is a high performance variant of the 5 Series executive car built by the Motorsport division of BMW. The first incarnation of the M5 was hand-built in 1986 on the 535i chassis with a modified engine from the M1 that made it the fastest production sedan at the time.[1] Versions of the M5 have been built from subsequent generations of the 5 Series platform.",
+            "price": 61000,
+            "img": "https://st.motortrend.com/uploads/sites/10/2017/12/2018-BMW-M5-front-three-quarter-09.jpg",
+            "category": "germany"
+        },
+        {
+            "name": "Volkswagen Passat",
+            "description": "is a large family car manufactured and marketed by Volkswagen since 1973, and now in its eighth generation. It has been marketed variously as the Dasher, Santana, Quantum, Magotan, Corsar and Carat. The successive generations of the Passat carry the Volkswagen internal designations B1, B2, etc.. ",
+            "price": 14500,
+            "img": "http://cdn.motorpage.ru/Photos/800/13F4.jpg",
+            "category": "germany"
+        },
+        {
+            "name": "Opel Vectra",
+            "description": "is a large family car that was engineered and produced by the German automaker Opel. In the United Kingdom, the car was sold under the Vauxhall marque as the Vauxhall Cavalier and later as the Vauxhall Vectra, from 1995 onwards. It has also been sold by Holden in Australasia as Holden Vectra, and by Chevrolet in Latin America as the Chevrolet Vectra.",
+            "price": 18000,
+            "img": "http://i.infocar.ua/i/12/194/1400x936.jpg",
+            "category": "germany"
+        },
+        {
+            "name": "Fiat Panda",
+            "description": "Introduced in 1980, the Panda (Tipo 141) was designed as an inexpensive, easy to use and maintain, no-frills utility vehicle, positioned in Fiat's range between the 126 and 127. The first Panda was designed by Giorgetto Giugiaro of Italdesign.",
+            "price": 14000,
+            "img": "https://st.mascus.com/imagetilewm/product/arielcar/fiat-panda,9115879_1.jpg",
+            "category": "italian"
+        },
+        {
+            "name": "Ferrari F12",
+            "description": "The Ferrari F12berlinetta[3] (also unofficially referred to as the F12 Berlinetta or the F12, and unofficially stylized as the F12B for short) is a front mid-engine, rear-wheel-drive grand tourer produced by Italian sports car manufacturer Ferrari. The F12 Berlinetta debuted at the 2012 Geneva Motor Show, and replaces the 599 grand tourer.",
+            "price": 180000,
+            "img": "https://hips.hearstapps.com/amv-prod-cad-assets.s3.amazonaws.com/images/15q4/662479/2016-ferrari-f12tdf-first-drive-review-car-and-driver-photo-663678-s-original.jpg",
+            "category": "italian"
+        },
+        {
+            "name": "Lamborghini Huracán",
+            "description": "The Lamborghini Huracán (Spanish for hurricane; [uɾaˈkan]) is a sports car manufactured by Italian automotive manufacturer Lamborghini replacing the previous V10 flagship, the Gallardo.[3] The Huracán made its worldwide debut at the 2014 Geneva Auto Show,[4] and was released in the market the second quarter of 2014.",
+            "price": 160000,
+            "img": "https://i.ytimg.com/vi/-BaHuMn-nNc/maxresdefault.jpg",
+            "category": "italian"
+        },
+        {
+            "name": "Citroën C3",
+            "description": "The Citroën C3 is a supermini car produced by Citroën since April 2002. It replaced the Citroën Saxo in the model line up, and is currently in its third generation. The third generation model made its appearance in June 2016, and went on sale in January 2017",
+            "price": 22000,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/2017_Citroen_C3_Flair_Puretech_1.2_%281%29.jpg/2880px-2017_Citroen_C3_Flair_Puretech_1.2_%281%29.jpg",
+            "category": "france"
+        },
+        {
+            "name": "Dacia Duster",
+            "description": "The Dacia Duster is a compact sport utility vehicle (SUV) produced jointly by the French manufacturer Renault and its Romanian subsidiary Dacia since 2010. It is currently at its second generation, that was launched in the autumn of 2017, and it has also been marketed as the Renault Duster in certain markets, such as India, Iran, Kazakhstan, Russia, Mexico, Egypt, South Africa, Ukraine, the UAE and in South America.",
+            "price": 25000,
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/2018_Dacia_Duster.jpg/2880px-2018_Dacia_Duster.jpg",
+            "category": "france"
+        }
+    ]
+}
