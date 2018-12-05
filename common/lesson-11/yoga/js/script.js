@@ -146,35 +146,31 @@ window.addEventListener('DOMContentLoaded', () => {
         let json = JSON.stringify(obj),
             phoneInput = d.querySelector('#phone');
 
+        request.send(json);
 
-        if (validation(phoneInput.value)) {
-            request.send(json);
-
-            request.addEventListener('readystatechange', () => {
-                if (request.readyState < 4) {
-                    statusMessage.innerHTML = message.loading;
-                } else if (request.readyState === 4 && request.status == 200) {
-                    statusMessage.innerHTML = message.success;
-                } else {
-                    statusMessage.innerHTML = message.failure;
-                }
-            });
-
-            // for (let i = 0; input.length; i++) {
-            //     input[0].value = '';
-            // }
-        } else {
-            alert('Валидация не пройдена!');
-        }
-
-        function validation(string) {
-            let isValid = true;
-
-            if ((string.search(/\w/) != -1) || (string.search(/\+/) != -1) || (string.search(/\+/) != 0)) {
-                isValid = false;
+        request.addEventListener('readystatechange', () => {
+            if (request.readyState < 4) {
+                statusMessage.innerHTML = message.loading;
+            } else if (request.readyState === 4 && request.status == 200) {
+                statusMessage.innerHTML = message.success;
+            } else {
+                statusMessage.innerHTML = message.failure;
             }
+        });
 
-            return isValid;
+        for (let i = 0; input.length; i++) {
+            input[0].value = '';
         }
     });
+});
+
+let tel1 = document.querySelector('#tel'),
+    tel2 = document.querySelector('#phone');
+
+tel1.addEventListener('keyup', function () {
+    this.value = this.value.replace(/[^\d+]/g, '');
+});
+
+tel2.addEventListener('keyup', function () {
+    this.value = this.value.replace(/[^\d+]/g, '');
 });
