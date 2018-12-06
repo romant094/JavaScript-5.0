@@ -13,16 +13,18 @@
 
 <body>
     <div class="container">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Filter</label>
+        <div class="row col-12">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="filters">Filter</label>
+                </div>
+                <select class="custom-select" id="filters">
+                    <option selected value="0">Show all</option>
+                </select>
             </div>
-            <select class="custom-select" id="filters">
-                <option selected value="0">Show all</option>
-            </select>
         </div>
 
-        <div class="row">
+        <div class="row cars-grid">
 
         </div>
     </div>
