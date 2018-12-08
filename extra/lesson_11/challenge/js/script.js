@@ -1,5 +1,5 @@
 let request = new XMLHttpRequest,
-    cont = document.querySelector('.row');
+    cont = document.querySelector('.cars-grid');
 
 request.open('GET', 'js/cars.json');
 request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -23,8 +23,7 @@ request.addEventListener('readystatechange', () => {
             option.textContent = countries[i];
             filters.appendChild(option);
         }
-
-
+        
         filters.addEventListener('change', () => {
             let filteredData = {
                 cars: []
@@ -44,29 +43,8 @@ request.addEventListener('readystatechange', () => {
 
             createDOM(filteredData);
         });
-
-        createDOM(allData);
-
-        function createDOM(data) {
-            cont.innerHTML = '';
-            data.cars.forEach((item) => {
-                cont.innerHTML += `
-                <div class="col-sm-6 col-md-4 car">
-                    <div class="thumbnail">
-                        <div class="img__container">
-                            <img class="img-fluid" src="${item.img}">
-                        </div>
-                        <div class="caption">
-                            <h4>${item.name}</h4>
-                            <p class="text-right"><strong>${item.category}</strong></p>
-                            <p>${cutString(item.description)}</p>
-                            <p class="text-right car-price">$${item.price}</p>
-                            <p class="text-center"><a href="#" class="btn btn-primary col-6 col-xs-8 col-md-12 " role="button">Buy</a></p>
-                        </div>
-                    </div>
-                </div>`;
-            });
-        }
+	
+	    createDOM(allData);
     }
 });
 
@@ -83,4 +61,27 @@ function cutString(string) {
     if (string.length > 50) {
         return string.substring(0, 99) + '...';
     }
+}
+
+function createDOM(data) {
+	cont.innerHTML = '';
+	data.cars.forEach((item) => {
+		cont.innerHTML += `
+                <div class="col-sm-6 col-md-4 car">
+                    <div class="thumbnail">
+                        <div class="img__container text-center">
+                            <img class="img-fluid" src="${item.img}">
+                        </div>
+                        <div class="caption">
+                            <div>
+								<h4>${item.name}</h4>
+							</div>
+                            <p class="text-right"><strong>${item.category}</strong></p>
+                            <p>${cutString(item.description)}</p>
+                            <p class="text-right car-price">$${item.price}</p>
+                            <p class="text-center"><a href="#" class="btn btn-primary col-6 col-xs-8 col-md-12 " role="button">Buy</a></p>
+                        </div>
+                    </div>
+                </div>`;
+	});
 }
