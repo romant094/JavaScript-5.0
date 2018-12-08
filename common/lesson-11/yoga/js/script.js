@@ -129,39 +129,42 @@ window.addEventListener('DOMContentLoaded', () => {
         feedackForm = d.querySelector('#form');
 
     statusMessage.classList.add('status');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        form.appendChild(statusMessage);
+    function sendForm(element) {
+        element.addEventListener('submit', (event) => {
+            event.preventDefault();
+            form.appendChild(statusMessage);
 
-        let request = new XMLHttpRequest();
-        request.open('POST', 'server.php');
-        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            let request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-        let formData = new FormData(form),
-            obj = {};
+            let formData = new FormData(element),
+                thanksModal = d.querySelector('#thanksModal');
 
-        formData.forEach((value, key) => {
-            obj[key] = value;
-        });
-        let json = JSON.stringify(obj),
-            phoneInput = d.querySelector('#phone');
+            request.send(formData);
 
-        request.send(json);
+            request.onreadystatechange = function () {
+                if (request.readyState < 4) {
+                    statusMessage.innerHTML = message.loading;
+                } else if (request.readyState === 4 && request.status == 200) {
+                    thanksModal.style.display = 'flex';
+                    overlay.style.display = 'none';
+                    statusMessage.innerHTML = '';
+                    setTimeout(() => {
+                        thanksModal.style.display = 'none';
+                    }, 3000);
+                } else {
+                    statusMessage.innerHTML = message.failure;
+                }
+            }
 
-        request.addEventListener('readystatechange', () => {
-            if (request.readyState < 4) {
-                statusMessage.innerHTML = message.loading;
-            } else if (request.readyState === 4 && request.status == 200) {
-                statusMessage.innerHTML = message.success;
-            } else {
-                statusMessage.innerHTML = message.failure;
+            for (let i = 0; input.length; i++) {
+                input[0].value = '';
             }
         });
-
-        for (let i = 0; input.length; i++) {
-            input[0].value = '';
-        }
-    });
+    }
+    sendForm(form);
+    sendForm(feedackForm);
 });
 
 let tel1 = document.querySelector('#tel'),
