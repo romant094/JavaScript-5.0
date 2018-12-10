@@ -314,12 +314,12 @@ window.addEventListener('DOMContentLoaded', function() {
         testCalcData();
     });
 
-    persons.addEventListener('keypress', () => {
-        testInput(/\d/);
+    persons.addEventListener('keydown', (event) => {
+        isValid(event);
     });
 
-    restDays.addEventListener('keypress', () => {
-        testInput(/\d/);
+    restDays.addEventListener('keydown', (event) => {
+        isValid(event);
     });
 
     function testCalcData() {
@@ -346,9 +346,15 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     // Проверка на ввод
-    function testInput(regExp) {
-        if (!regExp.test(event.key)) {//если не цифра отменяем ввод
-            event.preventDefault();
-        }
+    function isValid(e) {
+        let key = e.keyCode;
+
+    if (key == 46 || key == 8 || key == 9 || (key >= 35 && key <= 40)) {
+      return;
+    } else {
+      if ((key < 48 || key > 57) && (key < 96 || key > 105)) {
+        e.preventDefault();
+      }
+    }
     }
 });

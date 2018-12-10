@@ -26,12 +26,6 @@ function modal() {
             }
     });
 
-    close.addEventListener('click', () => {
-        overlay.style.display = 'none';
-        more.classList.remove('more-splash');
-        document.body.style.overflow = '';
-    });
-
     let message = {
         loading: 'Загрузка...',
         success: 'Спасибо! Скоро мы с Вами свяжемся!',
@@ -48,6 +42,13 @@ function modal() {
         contactFormInput[0].setAttribute('name', 'email'); //добавим атрибут name
         contactFormInput[1].setAttribute('name', 'phone'); //добавим атрибут name 
 
+    close.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        document.body.style.overflow = '';
+        form.removeChild(statusMessage);
+    });
+    
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         ajaxSend(form, input);

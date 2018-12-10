@@ -5,12 +5,12 @@ function valid() {
     mask = `+7 (${x}${x}${x}) ${x}${x}${x} ${x}${x} ${x}${x}`; //Маска поля;
 
     inputTel.forEach(function(event) { // Проверка ввода
-        event.addEventListener('keypress', (event) => {
+        event.addEventListener('keydown', (event) => {
             let target = event.target;
             if (target.value.length < 1 || target.selectionStart == 0) {
-                testInput(/\+/);
+                isValid(event);
             } else if (target.value.length > 0) {
-                testInput(/\d/);
+                isValid(event);
             }
         });
 
@@ -41,10 +41,16 @@ function valid() {
 
     });
 
-    function testInput(regExp) {
-        if (!regExp.test(event.key)) {//если не цифра отменяем ввод
-            event.preventDefault();
-        }
+    function isValid(e) {
+        let key = e.keyCode;
+
+    if (key == 46 || key == 8 || key == 9 || (key >= 35 && key <= 40)) {
+      return;
+    } else {
+      if ((key < 48 || key > 57) && (key < 96 || key > 105)) {
+        e.preventDefault();
+      }
+    }
     }
 
 }
